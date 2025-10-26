@@ -32,9 +32,10 @@ JavaScript (ES6+): Para toda a lógica funcional, manipulação do DOM e gerenci
 O projeto é organizado de forma limpa, separando responsabilidades:
 
 /calc
-├── 📄 index.html   (A estrutura da calculadora)
-├── 🎨 style.css     (Todos os estilos visuais)
-└── ⚙️ calc.js       (Toda a lógica e funções)
+- ├── 📄 index.html   (A estrutura da calculadora)
+- ├── 🎨 style.css     (Todos os estilos visuais)
+- └── ⚙️ calc.js       (Toda a lógica e funções)
+
 🧠 Como o Código Funciona
 1. index.html (A Estrutura)
 A estrutura é simples, contendo um div principal (.background) que envolve os visores e os botões.
