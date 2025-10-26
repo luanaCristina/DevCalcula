@@ -1,75 +1,82 @@
-// VARIÁVEL DE ESTADO (NOVA)
-// Esta variável vai "lembrar" se o último clique foi em "="
-let calculoRealizado = false;
-
-// Função para limpar o visor
-function limpar() {
-    document.getElementById('resultado').innerHTML = "";
-    document.getElementById('historico-visor').innerHTML = ""; // Limpa o histórico
-    calculoRealizado = false; // Reseta o estado
+/* Estilos básicos da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-// Função para apagar o último caractere
-function voltar() {
-    var resultado = document.getElementById('resultado').innerHTML;
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1);
-    calculoRealizado = false; // Qualquer edição reseta o estado
+/* Estilo do container da calculadora */
+.background {
+    background-color: #2c2c54; /* Cor escura do cabeçalho do slide */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-// Função para inserir números e operadores
-function inserir(botao) {
-    let resultadoElement = document.getElementById('resultado');
-    let historicoElement = document.getElementById('historico-visor');
-    
-    // Verifica se o botão clicado é um operador
-    const isOperator = ['/', '*', '-', '+'].includes(botao);
-
-    // CONDIÇÃO 1 (NOVA): Se um cálculo foi feito E o usuário clica em um NÚMERO
-    // A calculadora deve limpar o visor antes de inserir o novo número.
-    if (calculoRealizado && !isOperator) {
-        resultadoElement.innerHTML = botao;
-        historicoElement.innerHTML = ""; // Limpa o histórico antigo
-        calculoRealizado = false; // Reseta o estado
-    } 
-    // CONDIÇÃO 2: Comportamento normal
-    // Ou se um cálculo foi feito e o usuário clica em um OPERADOR (para continuar o cálculo)
-    // Ou se nenhum cálculo foi feito
-    else {
-        resultadoElement.innerHTML = resultadoElement.innerHTML + botao;
-        // Se o usuário clicou em um operador, resetamos o flag
-        if(isOperator) {
-            calculoRealizado = false;
-        }
-    }
+/* Estilo do título */
+h1 {
+    color: blueviolet;
+    text-align: center;
+    font-size: 1.8em; /* Ajustado para caber melhor */
 }
 
-// Função para calcular o resultado
-function calcular() {
-    let resultadoElement = document.getElementById('resultado');
-    let historicoElement = document.getElementById('historico-visor');
-    let caixinha = resultadoElement.innerHTML;
-    
-    if (caixinha) {
-        try {
-            let resultadoCalculo = eval(caixinha);
-            
-            // ATUALIZA O HISTÓRICO (NOVO)
-            historicoElement.innerHTML = caixinha + " =";
-            
-            // ATUALIZA O VISOR PRINCIPAL
-            resultadoElement.innerHTML = resultadoCalculo;
-            
-            // ATUALIZA O ESTADO (NOVO)
-            calculoRealizado = true;
+/* ESTILO DO VISOR DE HISTÓRICO (NOVO) */
+#historico-visor {
+    height: 20px;
+    margin: 10px 0 5px 0; /* Margem ajustada */
+    padding: 5px 10px;
+    text-align: right;
+    font-size: 0.9em; /* Fonte menor */
+    color: #aaa; /* Cor mais suave */
+    overflow: hidden;
+    box-sizing: border-box;
+    /* O fundo é o mesmo do container */
+}
 
-        } catch (e) {
-            resultadoElement.innerHTML = "Erro";
-            historicoElement.innerHTML = "";
-            calculoRealizado = false;
-        }
-    } else {
-        resultadoElement.innerHTML = "nada ...";
-        historicoElement.innerHTML = "";
-        calculoRealizado = false;
-    }
+/* Estilo do visor de resultado principal */
+#resultado {
+    background-color: #f4f4f4;
+    height: 40px;
+    margin: 0 0 20px 0; /* Margem ajustada */
+    border-radius: 5px;
+    padding: 10px;
+    text-align: right;
+    font-size: 2em;
+    color: #333;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Organização da tabela */
+table {
+    border-spacing: 5px; /* Espaçamento entre os botões */
+    margin: 0 auto;
+}
+
+/* Estilo base dos botões */
+button {
+    background-color: #333333;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px; /* Metade da altura/largura para ser redondo */
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Efeito 'hover' (passar o mouse) */
+.botao:hover {
+    background-color: blueviolet;
+    color: white;
+    transform: scale(1.1);
 }
