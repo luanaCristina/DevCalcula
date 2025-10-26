@@ -6,7 +6,7 @@ O projeto foi criado a partir do conteúdo apresentado por Luana Cristina  e, po
 ## 🚀 Demonstração (Live Demo)
 Você pode testar a calculadora funcionando em tempo real no GitHub Pages:
 
-[https://luanacristina.github.io/calc/](https://luanacristina.github.io/DevCalcula/)
+[https://luanacristina.github.io/DevCalcula/](https://luanacristina.github.io/DevCalcula/)
 
 ## ✨ Funcionalidades (Features)
 Visor Duplo: Um visor principal (#resultado) para o número atual e um visor secundário (#historico-visor) para exibir a operação anterior.
