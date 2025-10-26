@@ -33,7 +33,7 @@ O projeto é organizado de forma limpa, separando responsabilidades:
 
 /calc
 - ├── 📄 index.html   (A estrutura da calculadora)
-- ├── 🎨 style.css     (Todos os estilos visuais)
+- ├── 🎨 styles.css     (Todos os estilos visuais)
 - └── ⚙️ calc.js       (Toda a lógica e funções)
 
 ## 🧠 Como o Código Funciona
@@ -46,7 +46,7 @@ Os botões são organizados usando uma <table> para criar a grade.
 
 Cada <button> possui um atributo onclick="" que chama uma função JavaScript específica (ex: onclick="inserir('7')", onclick="calcular()", etc.).
 
-### 2. style.css (O Estilo)
+### 2. styles.css (O Estilo)
 O corpo (body) usa display: flex para centralizar a calculadora vertical e horizontalmente na página.
 
 O visor #resultado tem uma fonte maior e fundo claro, enquanto o #historico-visor é mais sutil, para indicar hierarquia.
