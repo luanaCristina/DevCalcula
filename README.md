@@ -93,7 +93,7 @@ Define `calculoRealizado = true;` para que a função inserir() saiba o que faze
 São funções de utilidade que limpam os visores e sempre resetam o estado calculoRealizado = false;, garantindo que a calculadora volte ao seu estado inicial de digitação.
 
 
-English Version:
+# 🇬🇧 🇬🇧 🇬🇧 🇬🇧 🇬🇧 🇬🇧 🇬🇧 English Version: 🇬🇧 🇬🇧 🇬🇧 🇬🇧 🇬🇧 🇬🇧 
 # 🧮 Workshop Calculator (HTML, CSS & JS)
 
 This is a functional web calculator project, developed as the main project for a hands-on workshop on front-end development with HTML5, CSS3, and JavaScript.
