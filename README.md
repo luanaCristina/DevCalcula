@@ -91,3 +91,93 @@ Define `calculoRealizado = true;` para que a função inserir() saiba o que faze
 `limpar() e voltar()`
 
 São funções de utilidade que limpam os visores e sempre resetam o estado calculoRealizado = false;, garantindo que a calculadora volte ao seu estado inicial de digitação.
+
+
+English Version:
+# 🧮 Workshop Calculator (HTML, CSS & JS)
+
+This is a functional web calculator project, developed as the main project for a hands-on workshop on front-end development with HTML5, CSS3, and JavaScript.
+
+The project was created based on content presented by Luana Cristina and was later improved to include more advanced features, such as a history display and smarter state management.
+
+## 🚀 Live Demo
+
+You can test the calculator running live on GitHub Pages:
+https://luanacristina.github.io/DevCalcula/
+
+## ✨ Features
+
+* **Dual Display:** A main display (`#resultado`) for the current number and a secondary display (`#historico-visor`) to show the previous operation.
+* **Basic Operations:** Addition, subtraction, multiplication, and division.
+* **Control Functions:**
+    * `L` (Clear): Clears the main display and history.
+    * `V` (Back/Backspace): Deletes the last inserted digit.
+* **Smart State Management:** After a calculation is performed (by clicking `=`), if the user types a new number, the display is automatically cleared to start a new calculation. If the user clicks an operator, it continues the calculation using the previous result.
+
+## 🛠️ Technologies Used
+
+* **HTML5:** For the calculator's semantic structure, including the buttons and displays.
+* **CSS3:** For all the styling, making the calculator responsive and visually appealing with rounded buttons and hover effects.
+* **JavaScript (ES6+):** For all the functional logic, DOM manipulation, and state management of the calculator.
+
+## 📂 Project Structure
+
+The project is organized cleanly, separating responsibilities:
+
+```
+
+/calc
+- ├── 📄 index.html   (The calculator's structure)
+- ├── 🎨 styles.css   (All visual styles)
+- └── ⚙️ calc.js       (All logic and functions)
+
+````
+
+## 🧠 How the Code Works
+
+### 1. index.html (The Structure)
+
+* The structure is simple, containing a main `div` (`.background`) that wraps the displays and buttons.
+* The displays are two `<p>` tags with distinct IDs: `#historico-visor` and `#resultado`.
+* The buttons are organized using a `<table>` to create the grid.
+* Each `<button>` has an `onclick=""` attribute that calls a specific JavaScript function (e.g., `onclick="inserir('7')"`, `onclick="calcular()"`).
+
+### 2. styles.css (The Style)
+
+* The `body` uses `display: flex` to center the calculator vertically and horizontally on the page.
+* The `#resultado` display has a larger font and a light background, while the `#historico-visor` is more subtle to indicate hierarchy.
+* The `.botao` class defines the main look of the buttons, including the `border-radius` that makes them circular.
+* The `.botao:hover` pseudo-class applies a `transform: scale()` effect to give visual feedback to the user when hovering over a button.
+
+### 3. calc.js (The Logic)
+
+This is the brain of the application. All interactivity is controlled here.
+
+**State Management**
+The most important part is the state variable:
+```javascript
+let calculoRealizado = false;
+````
+
+This variable "remembers" if the user's last action was clicking "Equals".
+
+**Main Functions**
+
+  * `inserir(botao)`
+
+      * Checks if `calculoRealizado` is `true`.
+      * **If it's `true` AND** the user clicks a *number*, the function understands that a new calculation is beginning. It clears the display (`resultadoElement.innerHTML = botao;`) and resets the state (`calculoRealizado = false;`).
+      * **If it's `false` OR** the user clicks an *operator* (like `+` or `-`), the function simply appends the new character to the display (`innerHTML = ... + botao`).
+
+  * `calcular()`
+
+      * Gets the text string from the display (e.g., `"2+10"`).
+      * Uses the `eval()` function to calculate the result of that string.
+      * **Improvement 1:** Updates the `#historico-visor` to show the operation that was just performed (e.g., `"2+10 ="`).
+      * **Improvement 2:** Updates the `#resultado` display with the calculated value (e.g., `12`).
+      * Sets `calculoRealizado = true;` so the `inserir()` function knows what to do next.
+
+  * `limpar()` and `voltar()`
+
+      * These are utility functions that clear the displays and always reset the `calculoRealizado = false;` state, ensuring the calculator returns to its initial typing state.
+
